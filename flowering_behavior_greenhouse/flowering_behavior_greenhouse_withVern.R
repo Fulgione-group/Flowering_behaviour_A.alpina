@@ -5,14 +5,13 @@
 ###
 #         Read big table
 ###
-setwd("/Users/fulgione/git/")
+setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/")
   # setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/flowering_behavior_greenhouse")
 
 ###
 #     The data
 ###
 gh_noVern_dataSet = "./data/bigpopdata_af.txt"
-gh_yesVern_dataSet_noFlowerArrest = "./data/AfterVern_af.txt"
 gh_yesVern_dataSet = "./data/AfterVern_af_withFlowerStop_2.txt"
 
 

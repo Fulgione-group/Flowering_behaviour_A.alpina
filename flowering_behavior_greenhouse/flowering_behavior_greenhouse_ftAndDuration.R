@@ -5,14 +5,13 @@
 ###
 #         Read big table
 ###
-setwd("/Users/fulgione/git/")
+setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/")
   # setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/flowering_behavior_greenhouse")
 
 ###
 #     The data
 ###
 gh_noVern_dataSet = "./data/bigpopdata_af.txt"
-gh_yesVern_dataSet_noFlowerArrest = "./data/AfterVern_af.txt"
 gh_yesVern_dataSet = "./data/AfterVern_af_withFlowerStop_2.txt"
 
 
@@ -51,7 +50,7 @@ for (row in 1:length(dat2$FlowAfterGerm_original)) {
 flTime=with(dat2, tapply(dat2$FlowAfterGerm_original, dat2$population, mean, na.rm=TRUE))
 sd.flTime=with(dat2, tapply(dat2$FlowAfterGerm_original, dat2$population, sd, na.rm=TRUE))
 count.flTime=with(dat2, tapply(dat2$FlowAfterGerm_original, dat2$population, function(x) length(x[!is.na(x)])))
-err.flow = (1.96*sd.flTime)/(sqrt(count.flTime))
+err.flTime = (1.96*sd.flTime)/(sqrt(count.flTime))
 
 percByFamily=with(dat2, tapply(dat2$Flowering_binominal, list(dat2$population, dat2$family), mean, na.rm=TRUE))
 
@@ -232,7 +231,7 @@ dev.off()
 ###
 #       And now the legend
 #
-pdf("./legend_fig2c_2021-01-04.pdf", height=7,width=3)
+pdf("./results/legend_fig2.pdf", height=7,width=3)
 plot(NULL, xaxt='n', yaxt='n', bty='n', ylab='', xlab='', xlim=0:1, ylim=0:1)
 
 pops=c("E3", "E4", "F1a", "F1b", "F2", "Paj", "PEP1", "S1", "S2", "S3", "S4", "S5", "")
