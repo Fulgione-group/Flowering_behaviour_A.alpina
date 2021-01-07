@@ -5,15 +5,22 @@
 ###
 #         Read big table
 ###
-setwd("/Users/fulgione/Downloads/Wunder_ms/")
+setwd("/Users/fulgione/git/")
+  # setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/flowering_behavior_greenhouse")
 
 ###
 #     The data
 ###
-gh_noVern_dataSet = "/Users/fulgione/Downloads/Wunder_ms/bigpopdata_af.txt_2011.txt"
+gh_noVern_dataSet = "./data/bigpopdata_af.txt"
+gh_yesVern_dataSet_noFlowerArrest = "./data/AfterVern_af.txt"
+gh_yesVern_dataSet = "./data/AfterVern_af_withFlowerStop_2.txt"
+
+
+
+# gh_noVern_dataSet = "/Users/fulgione/Downloads/Wunder_ms/bigpopdata_af.txt_2011.txt"
   # "/Users/fulgione/Downloads/Wunder_ms/bigpopdata_af.txt"
-gh_yesVern_dataSet_noFlowerArrest = "/Users/fulgione/Downloads/Wunder_ms/AfterVern_af.txt"
-gh_yesVern_dataSet = "/Users/fulgione/Downloads/Wunder_ms/AfterVern_af_withFlowerStop_2.txt"
+# gh_yesVern_dataSet_noFlowerArrest = "/Users/fulgione/Downloads/Wunder_ms/AfterVern_af.txt"
+# gh_yesVern_dataSet = "/Users/fulgione/Downloads/Wunder_ms/AfterVern_af_withFlowerStop_2.txt"
   # /Volumes/CVI/final/alpina/Wunder_ms/AfterVern_af_withFlowerStop_2.txt"
 
 greenH_noVern <- as.data.frame(read.table(gh_noVern_dataSet, header = T, row.names = NULL))
@@ -220,7 +227,7 @@ oneway_test(flTimeByRegion$percentage[flTimeByRegion$region %in% c("E","S")] ~ f
 #         Plot Fig 2a
 ###
 
-pdf("./fig2a_2021-04-05.pdf", height=7,width=7)
+pdf("./results/fig2a.pdf", height=7,width=7)
 par(mar=c(5,5,3,3))
 
 symb=c(21, 24, 

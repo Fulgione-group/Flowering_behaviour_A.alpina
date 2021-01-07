@@ -5,16 +5,15 @@
 ###
 #         Read big table
 ###
-setwd("/Users/fulgione/Downloads/Wunder_ms/")
+setwd("/Users/fulgione/git/")
   # setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/flowering_behavior_greenhouse")
 
 ###
 #     The data
 ###
-gh_noVern_dataSet = "/Users/fulgione/Downloads/Wunder_ms/bigpopdata_af.txt"
-  # "/Users/fulgione/Downloads/Wunder_ms/bigpopdata_af.txt_2011.txt"
-gh_yesVern_dataSet_noFlowerArrest = "/Users/fulgione/Downloads/Wunder_ms/AfterVern_af.txt"
-gh_yesVern_dataSet = "/Users/fulgione/Downloads/Wunder_ms/AfterVern_af_withFlowerStop_2.txt"
+gh_noVern_dataSet = "./data/bigpopdata_af.txt"
+gh_yesVern_dataSet_noFlowerArrest = "./data/AfterVern_af.txt"
+gh_yesVern_dataSet = "./data/AfterVern_af_withFlowerStop_2.txt"
 
 
 
@@ -112,7 +111,7 @@ for (row in 1:length(percByFamily[,1])) {
 
 
 
-pdf("./fig2c_2021-01-06.pdf", height=7,width=7)
+pdf("./results/fig2c.pdf", height=7,width=7)
 	# /Users/fulgione/Downloads/Wunder_ms/fig2c_2021-01-04.pdf", height=7,width=7)
 par(mar=c(5,5,3,3))
 
