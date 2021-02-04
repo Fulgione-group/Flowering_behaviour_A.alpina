@@ -178,6 +178,12 @@ for (row in 1:length(percByFamily[,1])) {
 flTimeByRegion<-data.frame("family" = fam, "region" = reg, "population" = pop, "flTime" = flt, "percentage" = percentag)
 
 
+
+
+###
+#     Permutation test to check for differences across regions
+###
+
 #
 library(coin) 
 
