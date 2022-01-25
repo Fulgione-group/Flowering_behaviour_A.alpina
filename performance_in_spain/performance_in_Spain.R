@@ -13,7 +13,8 @@ setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/")
 ###
 gh_noVern_dataSet = "./data/bigpopdata_af.txt"
 gh_yesVern_dataSet = "./data/AfterVern_af_withFlowerStop_2.txt"
-fitness_data="./data/2010plantation-protocols_2010-2012_for-boxplots_05d_forGLMM_2019-05-16.txt"
+fitness_data="./data/2010plantation-protocols_2010-2012_for-boxplots_05d_forGLMM_2019-05-16_JWcorrected.txt"
+  # old table: fitness_data="./data/2010plantation-protocols_2010-2012_for-boxplots_05d_forGLMM_2019-05-16.txt"
 
 fitnessExp <- as.data.frame(read.table(fitness_data, header = T, row.names = NULL))
 str(fitnessExp)
@@ -97,6 +98,14 @@ stErr.rose2012 = (1.96*err.rose2012)/(sqrt(count.rose2012))
 roseByFam2012=with(fitnessExp, tapply(fitnessExp$rosettes2012, list(fitnessExp$population, fitnessExp$family), mean, na.rm=TRUE))
 
 
+#   Get proportion of flowering plants in 2010
+#
+flow2010=with(fitnessExp, tapply(fitnessExp$flowered2010, fitnessExp$population, mean, na.rm=TRUE))
+err.flow2010=with(fitnessExp, tapply(fitnessExp$flowered2010, fitnessExp$population, sd, na.rm=TRUE))
+count.flow2010=with(fitnessExp, tapply(fitnessExp$flowered2010, fitnessExp$population, function(x) length(x[!is.na(x)])))
+stErr.flow2010 = (1.96*err.flow2010)/(sqrt(count.flow2010))
+
+
 
 ###
 #       Now Test for differences between PEP1 and paj
@@ -108,7 +117,7 @@ wilcox.test(fitnessExp[fitnessExp$population == "PEP1",]$alive2010, fitnessExp[f
 # 
 # Wilcoxon rank sum test with continuity correction
 # data:  pepSurv and pajSurv
-# W = 5150, p-value = 0.6469
+# W = 5114.5, p-value = 0.6132
 # alternative hypothesis: true location shift is not equal to 0
 
 # Test for differences in survival between PEP1 and paj in 2011
@@ -116,7 +125,7 @@ wilcox.test(fitnessExp[fitnessExp$population == "PEP1",]$alive2011, fitnessExp[f
 # 
 # Wilcoxon rank sum test with continuity correction
 # data:  pepSurv and pajSurv
-# W = 4250, p-value = 0.004393
+# W = 4212, p-value = 0.004827
 # alternative hypothesis: true location shift is not equal to 0
 
 # Test for differences in survival between PEP1 and paj in 2012
@@ -124,7 +133,7 @@ wilcox.test(fitnessExp[fitnessExp$population == "PEP1",]$alive2012, fitnessExp[f
 # 
 # Wilcoxon rank sum test with continuity correction
 # data:  pepSurv and pajSurv
-# W = 4350, p-value = 0.005598
+# W = 4009.5, p-value = 5.459e-06
 # alternative hypothesis: true location shift is not equal to 0
 
 # Test for differences in Rosette number between PEP1 and paj in 2010
@@ -132,7 +141,7 @@ wilcox.test(fitnessExp[fitnessExp$population == "PEP1",]$rosettes2010, fitnessEx
 # 
 # Wilcoxon rank sum test with continuity correction
 # data:  pepRos and pajRos
-# W = 5070, p-value = 0.8319
+# W = 5034.5, p-value = 0.7964
 # alternative hypothesis: true location shift is not equal to 0
 
 # Test for differences in Rosette number between PEP1 and paj in 2011
@@ -140,7 +149,7 @@ wilcox.test(fitnessExp[fitnessExp$population == "PEP1",]$rosettes2011, fitnessEx
 # 
 # Wilcoxon rank sum test with continuity correction
 # data:  pepRos and pajRos
-# W = 4163, p-value = 0.01564
+# W = 4124.5, p-value = 0.01687
 # alternative hypothesis: true location shift is not equal to 0
 
 # Test for differences in Rosette number between PEP1 and paj in 2012
@@ -148,7 +157,7 @@ wilcox.test(fitnessExp[fitnessExp$population == "PEP1",]$rosettes2012, fitnessEx
 # 
 # Wilcoxon rank sum test with continuity correction
 # data:  pepRos and pajRos
-# W = 4018, p-value = 0.0002748
+# W = 3977, p-value = 0.0002948
 # alternative hypothesis: true location shift is not equal to 0
 
 # Test for differences in Silique number between PEP1 and paj in 2010
@@ -156,7 +165,7 @@ wilcox.test(fitnessExp[fitnessExp$population == "PEP1",]$siliques2010all, fitnes
 # 
 # Wilcoxon rank sum test with continuity correction
 # data:  fitnessExp[fitnessExp$population == "PEP1", ]$siliques2010all and fitnessExp[fitnessExp$population == "Paj", ]$siliques2010all
-# W = 5400, p-value = 0.004038
+# W = 5350, p-value = 0.003853
 # alternative hypothesis: true location shift is not equal to 0
 
 # Test for differences in Silique number between PEP1 and paj in 2011
@@ -164,7 +173,7 @@ wilcox.test(fitnessExp[fitnessExp$population == "PEP1",]$siliques2011all, fitnes
 # 
 # Wilcoxon rank sum test with continuity correction
 # data:  pepSiliq and pajSiliq
-# W = 4197, p-value = 0.002417
+# W = 4159, p-value = 0.002661
 # alternative hypothesis: true location shift is not equal to 0
 
 # Test for differences in Silique number between PEP1 and paj in 2012
@@ -207,7 +216,7 @@ mean(fitnessExp[fitnessExp$population == "E4",]$siliques20102012sumall)/mean(fit
 ###
 #         Plot Fig 5 - silique number
 ###
-pdf("./fig5c_siliqueNumber.pdf", height=6,width=6)
+pdf("./fig5c_siliqueNumber_new.pdf", height=6,width=6)
 par(mar=c(5,5,3,3))
 
 x=c(1.1, 1.3, 1.5, 1.7)
@@ -266,7 +275,7 @@ dev.off()
 ###
 #         Plot Fig 5 - survival
 ###
-pdf("./fig5c_survival.pdf", height=6,width=6)
+pdf("./fig5c_survival_new.pdf", height=6,width=6)
 par(mar=c(5,5,3,3))
 
 x=c(1.1, 1.3, 1.5)
@@ -319,7 +328,7 @@ dev.off()
 ###
 #         Plot Fig 5 - rosette number
 ###
-pdf("./fig5c_rosettes.pdf", height=6,width=6)
+pdf("./fig5c_rosettes_new.pdf", height=6,width=6)
 par(mar=c(5,5,3,3))
 
 x=c(1.1, 1.3, 1.5)
@@ -366,6 +375,21 @@ axis(2, at=seq(0, 7.5, 2.5), labels=T, tick=TRUE, las=1, cex.axis=1.2)
 dev.off()
 
 
+
+
+
+
+
+###
+#       And now the legend
+#
+pdf("./legend_figFitness.pdf", height=3, width=7)
+plot(NULL, xaxt='n', yaxt='n', bty='n', ylab='', xlab='', xlim=0:1, ylim=0:1)
+
+pops=c("E3", "E4", "Paj", "PEP1")
+order=c(3, 4, 1, 2)
+legend("center", legend = pops[order], cex = 1.2, bty="n", pch=symb[order], pt.bg = col[order], ncol=4, y.intersp=1.5)
+dev.off()
 
 
 
