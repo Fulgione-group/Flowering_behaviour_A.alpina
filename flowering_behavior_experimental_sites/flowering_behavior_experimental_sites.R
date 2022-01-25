@@ -5,18 +5,16 @@
 ###
 #         Read big table
 ###
-setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/")
-  # setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/flowering_behavior_greenhouse")
+setwd("Path to working directory")
 
 ###
-#     The data
+# 	Load the data
+# 	All data files are deposited in the Dryad repository (doi:10.5061/dryad.7wm37pvvm). 
 ###
-gh_noVern_dataSet = "./data/bigpopdata_af.txt"
-gh_yesVern_dataSet = "./data/AfterVern_af_withFlowerStop_2.txt"
-FB_expSites_data <- as.data.frame(read.table("./data/on-sitedata_E-S-F-D_2019-11-20_simplified.txt", header = T, row.names = NULL))
-# str(FB_expSites_data)
 
-
+gh_noVern_dataSet = "Path to file flowering_behavior_greenhouse_no_vernalization_Wunder_etAl.txt"
+gh_yesVern_dataSet = "Path to flowering_behavior_greenhouse_with_vernalization_Wunder_etAl.txt"
+FB_expSites_data <- as.data.frame(read.table("Path to file survival_and_flowering_at_experimental_sites_Wunder_etAl.txt", header = T, row.names = NULL))
 
 
 
@@ -25,7 +23,7 @@ FB_expSites_data <- as.data.frame(read.table("./data/on-sitedata_E-S-F-D_2019-11
 #######
 #####
 ##
-#           Flowering behavior at field sites,fig 3
+#           Flowering behavior at field sites,fig 4
 #           A total of 4 sites
 #           LOOK FOR CORRELATION BETWEEN PERCENTAGE SURVIVED TO NEXT GENERATION AND FLOWERING BEHAVIOR!!!
 #           Think about Grouped boxplots
@@ -85,7 +83,7 @@ for (site in sites) {
   #         Plot Fig 3
   ###
   
-  pdf(paste("./results/fig3_2021-01-25_2_", site, ".pdf", sep=""), height=6,width=6)
+  pdf(paste("./fig4_", site, ".pdf", sep=""), height=6,width=6)
   par(mar=c(5,5,3,3))
   
   x=c(1.2)
@@ -171,10 +169,10 @@ for (site in sites) {
   
   
   ###
-  #         Plot Fig 4 - new: Flowering behavior vs survival fitness
+  #         Plot Fig 5: Flowering behavior vs survival fitness
   ###
   
-  pdf(paste("./results/fig3surv_2021-01-25_2011alive_", site, ".pdf", sep=""), height=6,width=6)
+  pdf(paste("./fig5_", site, ".pdf", sep=""), height=6,width=6)
   par(mar=c(5,5,3,3))
   
   x=c(1.2)

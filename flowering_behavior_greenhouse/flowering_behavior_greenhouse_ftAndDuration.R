@@ -5,20 +5,23 @@
 ###
 #         Read big table
 ###
-setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/")
-  # setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/flowering_behavior_greenhouse")
+setwd("Path to working directory")
 
 ###
-#     The data
+# 	Load the data
+# 	All data files are deposited in the Dryad repository (doi:10.5061/dryad.7wm37pvvm). 
 ###
-gh_noVern_dataSet = "./data/bigpopdata_af.txt"
-gh_yesVern_dataSet = "./data/AfterVern_af_withFlowerStop_2.txt"
+
+gh_noVern_dataSet = "Path to file flowering_behavior_greenhouse_no_vernalization_Wunder_etAl.txt"
+gh_yesVern_dataSet = "Path to flowering_behavior_greenhouse_with_vernalization_Wunder_etAl.txt"
+
+
 
 
 
 
 ###
-#         Plot Fig 2c
+#         Plot Fig 3c
 #         Consider changing the position of the perpetually flowering: they are too close to others.
 #         Also, does it make sense to include perpetually flowering plants in the pop means? 
 #         Otherwise the relationship is steeper than in reality
@@ -110,7 +113,7 @@ for (row in 1:length(percByFamily[,1])) {
 
 
 
-pdf("./results/fig2c.pdf", height=7,width=7)
+pdf("./fig3c.pdf", height=7,width=7)
 	# /Users/fulgione/Downloads/Wunder_ms/fig2c_2021-01-04.pdf", height=7,width=7)
 par(mar=c(5,5,3,3))
 

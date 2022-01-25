@@ -5,16 +5,16 @@
 ###
 #         Read big table
 ###
-setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/")
-# setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/flowering_behavior_greenhouse")
+setwd("Path to working directory")
 
 ###
-#     The data
+# 	Load the data
+# 	All data files are deposited in the Dryad repository (doi:10.5061/dryad.7wm37pvvm). 
 ###
-gh_noVern_dataSet = "./data/bigpopdata_af.txt"
-gh_yesVern_dataSet = "./data/AfterVern_af_withFlowerStop_2.txt"
-fitness_data="./data/2010plantation-protocols_2010-2012_for-boxplots_05d_forGLMM_2019-05-16_JWcorrected.txt"
-  # old table: fitness_data="./data/2010plantation-protocols_2010-2012_for-boxplots_05d_forGLMM_2019-05-16.txt"
+
+gh_noVern_dataSet = "Path to file flowering_behavior_greenhouse_no_vernalization_Wunder_etAl.txt"
+gh_yesVern_dataSet = "Path to flowering_behavior_greenhouse_with_vernalization_Wunder_etAl.txt"
+fitness_data="Path to file vegetative_and_reproductive_performance_in_Spain_Wunder_etAl.txt"
 
 fitnessExp <- as.data.frame(read.table(fitness_data, header = T, row.names = NULL))
 str(fitnessExp)
@@ -214,9 +214,9 @@ mean(fitnessExp[fitnessExp$population == "E4",]$siliques20102012sumall)/mean(fit
 
 
 ###
-#         Plot Fig 5 - silique number
+#         Plot Fig 6 - silique number
 ###
-pdf("./fig5c_siliqueNumber_new.pdf", height=6,width=6)
+pdf("./fig6_siliqueNumber.pdf", height=6,width=6)
 par(mar=c(5,5,3,3))
 
 x=c(1.1, 1.3, 1.5, 1.7)
@@ -273,9 +273,9 @@ dev.off()
 
 
 ###
-#         Plot Fig 5 - survival
+#         Plot Fig 6 - survival
 ###
-pdf("./fig5c_survival_new.pdf", height=6,width=6)
+pdf("./fig6_survival.pdf", height=6,width=6)
 par(mar=c(5,5,3,3))
 
 x=c(1.1, 1.3, 1.5)
@@ -326,9 +326,9 @@ dev.off()
 
 
 ###
-#         Plot Fig 5 - rosette number
+#         Plot Fig 6 - rosette number
 ###
-pdf("./fig5c_rosettes_new.pdf", height=6,width=6)
+pdf("./fig6_rosettes.pdf", height=6,width=6)
 par(mar=c(5,5,3,3))
 
 x=c(1.1, 1.3, 1.5)

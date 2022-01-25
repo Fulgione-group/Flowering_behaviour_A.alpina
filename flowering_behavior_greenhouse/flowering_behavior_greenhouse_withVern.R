@@ -5,14 +5,16 @@
 ###
 #         Read big table
 ###
-setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/")
-  # setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/flowering_behavior_greenhouse")
+setwd("Path to working directory")
 
 ###
-#     The data
+# 	Load the data
+# 	All data files are deposited in the Dryad repository (doi:10.5061/dryad.7wm37pvvm). 
 ###
-gh_noVern_dataSet = "./data/bigpopdata_af.txt"
-gh_yesVern_dataSet = "./data/AfterVern_af_withFlowerStop_2.txt"
+
+gh_noVern_dataSet = "Path to file flowering_behavior_greenhouse_no_vernalization_Wunder_etAl.txt"
+gh_yesVern_dataSet = "Path to flowering_behavior_greenhouse_with_vernalization_Wunder_etAl.txt"
+
 
 
 
@@ -138,7 +140,7 @@ flTimeByFamilyV=with(vernDat, tapply(vernDat$FlowAfterGermFlAG, list(vernDat$pop
 
 
 
-pdf("./results/fig2b.pdf", height=7,width=7)
+pdf("./fig3b.pdf", height=7,width=7)
 par(mar=c(5,5,3,3))
 
 symb=c(21, 24, 

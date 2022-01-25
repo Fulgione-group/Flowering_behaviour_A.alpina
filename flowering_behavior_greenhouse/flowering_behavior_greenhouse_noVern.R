@@ -1,18 +1,5 @@
 
-# Run as:
-# Rscript filename.R 
 
-###
-#         Read big table
-###
-setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/")
-  # setwd("/Users/fulgione/git/Flowering_behaviour_A.alpina/flowering_behavior_greenhouse")
-
-###
-#     The data
-###
-gh_noVern_dataSet = "./data/bigpopdata_af.txt"
-gh_yesVern_dataSet = "./data/AfterVern_af_withFlowerStop_2.txt"
 
 greenH_noVern <- as.data.frame(read.table(gh_noVern_dataSet, header = T, row.names = NULL))
 dat <- subset(greenH_noVern, greenH_noVern$priority == 1, select = c("region","population","family","individual", "FlowAfterGerm_original", "Flowering_binominal"))
@@ -221,10 +208,10 @@ oneway_test(flTimeByRegion$percentage[flTimeByRegion$region %in% c("E","S")] ~ f
 
 
 ###
-#         Plot Fig 2a
+#         Plot Fig 3a
 ###
 
-pdf("./results/fig2a.pdf", height=7,width=7)
+pdf("./fig3a.pdf", height=7,width=7)
 par(mar=c(5,5,3,3))
 
 symb=c(21, 24, 
