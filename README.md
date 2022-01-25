@@ -1,6 +1,7 @@
 
 # Flowering_behaviour_A.alpina
-A map of flowering behaviour across European Arabis alpina suggests spatially varying selection and a rugged fitness landscape
+Geographically structured variation in flowering behavior among European populations of perennial Arabis alpina
+Jörg Wunder, Andrea Fulgione, Per Toräng, Stefan Wötzel, Michel Herzog, José Ramón Obeso, Yiannis Kourmpetis, Roeland van Ham, Thomas Odong, Marco Bink, Ulla Kemi, Jon Ågren and George Coupland
 
 Folders:
 1) 	flowering_behavior_greenhouse: 		Contains code to reproduce figures and stats on the greenhouse experiments to score flowering behavior
