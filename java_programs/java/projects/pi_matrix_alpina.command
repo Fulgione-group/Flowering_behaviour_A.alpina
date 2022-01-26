@@ -6,7 +6,7 @@
 # 		Runs in parallel across rows of samples
 #		Run as:
 # 		
-# 		for i in {3..1610}
+# 		for i in {3..81}
 #		do
 #			./pi_matrix_alpina.command ${i}
 #		done
