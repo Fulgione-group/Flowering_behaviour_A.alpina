@@ -1,5 +1,5 @@
 ###
-# Geographically structured variation in flowering behavior among European populations of perennial Arabis alpina
+# Adaptation of perennial flowering phenology across the European range of Arabis alpina
 ###
 
 Jörg Wunder, Andrea Fulgione, Per Toräng, Stefan Wötzel, Michel Herzog, José Ramón Obeso, Yiannis Kourmpetis, Roeland van Ham, Thomas Odong, Marco Bink, Ulla Kemi, Jon Ågren and George Coupland
