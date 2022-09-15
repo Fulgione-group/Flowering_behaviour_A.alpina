@@ -119,7 +119,7 @@ par(mar=c(5,5,3,3))
 
 symb=c(21, 24, 
        21, 24, 23,
-       21, 21,
+       23, 22,
        21, 24, 23, 22, 25)
 colOr=c(rep(rgb(178/255, 34/255, 34/255, 0.3), 2), rep(rgb(218/255, 165/255, 32/255, 0.3), 3), rgb(255/255, 0/255, 0/255, 0.8), rgb(255/255, 20/255, 147/255, 0.8), rep(rgb(30/255, 144/255, 255/255, 0.3), 5))
 col = c(rep(rgb(178/255, 34/255, 34/255, 0.9), 2), rep(rgb(218/255, 165/255, 32/255, 0.9), 3), rgb(255/255, 0/255, 0/255, 0.8), rgb(255/255, 20/255, 147/255, 0.8), rep(rgb(30/255, 144/255, 255/255, 0.9), 5))
@@ -191,7 +191,7 @@ durat_ref=with(dat_ref, tapply(dat_ref$duration, dat_ref$population, mean, na.rm
 err.durat_ref=with(dat_ref, tapply(dat_ref$duration, dat_ref$population, sd, na.rm=TRUE))
 
 # Paj
-points(x=durat_ref[names(durat_ref) == 'Paj'], y=370, bg = rgb(255/255, 0/255, 0/255, 0.8), col="black", pch=symb[1:2], lwd=0.1, cex=1.5)
+points(x=durat_ref[names(durat_ref) == 'Paj'], y=370, bg = rgb(255/255, 0/255, 0/255, 0.8), col="black", pch=c(23), lwd=0.1, cex=3)
 # Pep1
 #points(x=perc_ref[2], y=flTime_ref[2], bg = rgb(255/255, 20/255, 147/255, 0.8), col="black", pch=symb[1], lwd=0.1, cex=1.5)
 
@@ -208,7 +208,7 @@ for (i in 1:length(duratV)) {
 }
 
 # Add the points
-points(x=duratV, y=flTime, bg = col, col="black", pch=symb, lwd=0.3, cex=2)
+points(x=duratV, y=flTime, bg = col, col="black", pch=symb, lwd=0.3, cex=3)
 
 
 # Add errors
@@ -222,8 +222,11 @@ arrows(arrowX.start, flTime, arrowX.end, flTime, angle=90, code=3, length=0.03)
 
 axis(1, at=c(0.0, 50, 100, 160), labels=c("0", "50", "100", ""), tick=TRUE, las=1, cex.axis=1.2)
 # axis(1, at=c(100, 170), labels=F, tick=T, las=1, cex.axis=1.2)
-axis(2, at=c(seq(0, 300, 100), 370), labels=c("0", "100", "200", "300", ""), tick=TRUE, las=1, cex.axis=1.2)
+# axis(2, at=c(seq(0, 300, 100), 370), labels=c("0", "100", "200", "300", ""), tick=TRUE, las=1, cex.axis=1.2)
 # axis(2, at=c(300, 400), labels=F, tick=T, las=1, cex.axis=1.2)
+
+axis(2, at=seq(0, 300, 100), labels=T, tick=TRUE, las=1, cex.axis=1.2)
+axis(2, at=c(300, 400), labels=F, tick=T, las=1, cex.axis=1.2)
 
 
 dev.off()
@@ -234,13 +237,13 @@ dev.off()
 ###
 #       And now the legend
 #
-pdf("./results/legend_fig2.pdf", height=7,width=3)
+pdf("./legend_fig3.pdf", height=3,width=12)
 plot(NULL, xaxt='n', yaxt='n', bty='n', ylab='', xlab='', xlim=0:1, ylim=0:1)
 
 pops=c("E3", "E4", "F1a", "F1b", "F2", "Paj", "PEP1", "S1", "S2", "S3", "S4", "S5", "")
-# pops[c(6, 7, 1:5, 8:12)]
-order=c(c(6, 1, 3, 5, 9, 11, 7, 2, 4, 13, 8, 10, 12))
-legend("center", legend = pops[order], cex = 1.2, bty="n", pch=symb[order], pt.bg = col[order], ncol=2, y.intersp=1.5)
+order=c(c(6:7, 1:5, 8:12))
+
+legend("center", legend = pops[order], cex = 1.2, bty="n", pch=symb[order], pt.bg = col[order], ncol=12, y.intersp=1.5)
 dev.off()
 
 

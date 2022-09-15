@@ -216,7 +216,7 @@ mean(fitnessExp[fitnessExp$population == "E4",]$siliques20102012sumall)/mean(fit
 ###
 #         Plot Fig 6 - silique number
 ###
-pdf("./fig6_siliqueNumber.pdf", height=6,width=6)
+pdf("./fig6_fruitNumber.pdf", height=6,width=6)
 par(mar=c(5,5,3,3))
 
 x=c(1.1, 1.3, 1.5, 1.7)
@@ -229,7 +229,7 @@ symb=c(21, 24, 23, 22)
 colOr=c(rep(rgb(178/255, 34/255, 34/255, 0.3), 2), rgb(255/255, 0/255, 0/255, 0.3), rgb(255/255, 20/255, 147/255, 0.3))
 col=c(rep(rgb(178/255, 34/255, 34/255, 0.9), 2), rgb(255/255, 0/255, 0/255, 0.9), rgb(255/255, 20/255, 147/255, 0.9))
 
-plot(y=0, x=0, bg = col, col="black", type="n", lwd=0.3, cex=2, axes=F, ylab=list(expression("Silique number"), cex=1.5), xlab=list(expression("Years"), cex=1.5), xlim=c(1.0, 1.8), ylim=c(0, 421))
+plot(y=0, x=0, bg = col, col="black", type="n", lwd=0.3, cex=2, axes=F, ylab=list(expression("Fruit number (Siliques)"), cex=1.5), xlab=list(expression("Years"), cex=1.5), xlim=c(1.0, 1.8), ylim=c(0, 421))
 
 # Plot families
 for (r in 1:2) {
@@ -244,16 +244,16 @@ for (r in 1:2) {
 }
 
 # Plot population means
-points(x=x1, y=sil2010, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+points(x=x1, y=sil2010, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
 arrows( x1, (sil2010 + (stErr.sil2010)), x1, (sil2010 - (stErr.sil2010)), angle=90, code=3, length=0.03) 
 
-points(x=x2, y=sil2011, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+points(x=x2, y=sil2011, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
 arrows( x2, (sil2011 + (stErr.sil2011)), x2, (sil2011 - (stErr.sil2011)), angle=90, code=3, length=0.03) 
 
-points(x=x3, y=sil2012, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+points(x=x3, y=sil2012, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
 arrows( x3, (sil2012 + (stErr.sil2012)), x3, (sil2012 - (stErr.sil2012)), angle=90, code=3, length=0.03) 
 
-points(x=x4, y=silTot, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+points(x=x4, y=silTot, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
 arrows( x4, (silTot + (stErr.silTot)), x4, (silTot - (stErr.silTot)), angle=90, code=3, length=0.03) 
 
 # Connect the means across years
@@ -287,7 +287,7 @@ symb=c(21, 24, 23, 22)
 colOr=c(rep(rgb(178/255, 34/255, 34/255, 0.3), 2), rgb(255/255, 0/255, 0/255, 0.3), rgb(255/255, 20/255, 147/255, 0.3))
 col=c(rep(rgb(178/255, 34/255, 34/255, 0.9), 2), rgb(255/255, 0/255, 0/255, 0.9), rgb(255/255, 20/255, 147/255, 0.9))
 
-plot(y=0, x=0, bg = col, col="black", type="n", lwd=0.3, cex=2, axes=F, ylab=list(expression("Survival %"), cex=1.5), xlab=list(expression("Years"), cex=1.5), xlim=c(1.0, 1.6), ylim=c(0, 0.81))
+plot(y=0, x=0, bg = col, col="black", type="n", lwd=0.3, cex=2, axes=F, ylab=list(expression("Survival"), cex=1.5), xlab=list(expression("Years"), cex=1.5), xlim=c(1.0, 1.6), ylim=c(0, 0.81))
 
 # Plot families
 for (r in 1:2) {
@@ -301,13 +301,13 @@ for (r in 1:2) {
 }
 
 # Plot population means
-points(x=x1, y=surv2010, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+points(x=x1, y=surv2010, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
 arrows( x1, (surv2010 + (stErr.surv2010)), x1, (surv2010 - (stErr.surv2010)), angle=90, code=3, length=0.03) 
 
-points(x=x2, y=surv2011, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+points(x=x2, y=surv2011, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
 arrows( x2, (surv2011 + (stErr.surv2011)), x2, (surv2011 - (stErr.surv2011)), angle=90, code=3, length=0.03) 
 
-points(x=x3, y=surv2012, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+points(x=x3, y=surv2012, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
 arrows( x3, (surv2012 + (stErr.surv2012)), x3, (surv2012 - (stErr.surv2012)), angle=90, code=3, length=0.03) 
 
 # Connect the means across years
@@ -317,7 +317,7 @@ arrows( x3, (surv2012 + (stErr.surv2012)), x3, (surv2012 - (stErr.surv2012)), an
 
 axis(1, at=c(1.0, 1.2, 1.4, 1.6), tick=TRUE, labels=F, cex.axis=1.2)
 axis(1, at=c(1.1, 1.3, 1.5), tick=F, labels=c(expression(paste("1"^"st")), expression(paste("2"^"nd")), expression(paste("3"^"rd"))), cex.axis=1.2)
-axis(2, at=seq(0, 0.8, 0.4), labels=seq(0, 80, 40), tick=TRUE, las=1, cex.axis=1.2)
+axis(2, at=seq(0, 0.8, 0.4), labels=c("0.0", "0.4", "0.8"), tick=TRUE, las=1, cex.axis=1.2)
 
 dev.off()
 
@@ -354,13 +354,13 @@ for (r in 1:2) {
 }
 
 # Plot population means
-points(x=x1, y=rose2010, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+points(x=x1, y=rose2010, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
 arrows( x1, (rose2010 + (stErr.rose2010)), x1, (rose2010 - (stErr.rose2010)), angle=90, code=3, length=0.03) 
 
-points(x=x2, y=rose2011, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+points(x=x2, y=rose2011, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
 arrows( x2, (rose2011 + (stErr.rose2011)), x2, (rose2011 - (stErr.rose2011)), angle=90, code=3, length=0.03) 
 
-points(x=x3, y=rose2012, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+points(x=x3, y=rose2012, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
 arrows( x3, (rose2012 + (stErr.rose2012)), x3, (rose2012 - (stErr.rose2012)), angle=90, code=3, length=0.03) 
 
 # Connect the means across years

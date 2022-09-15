@@ -67,12 +67,13 @@ for (site in sites) {
   # And by families
   
   percByFamily_2011=with(expSitDat, tapply(expSitDat$Flowering_binominal_2011, list(expSitDat$population, expSitDat$family), mean, na.rm=TRUE))
+  percByFamily_2012=with(expSitDat, tapply(expSitDat$Flowering_binominal_2012, list(expSitDat$population, expSitDat$family), mean, na.rm=TRUE))
   survByFamily_2012=with(expSitDat, tapply(expSitDat$alive_2012, list(expSitDat$population, expSitDat$family), mean, na.rm=TRUE))
   
   
   symb=c(21, 24, 
          21, 24, 23,
-         21, 21,
+         23, 22,
          21, 24, 23, 22, 25)
   colOr=c(rep(rgb(178/255, 34/255, 34/255, 0.1), 2), rep(rgb(218/255, 165/255, 32/255, 0.1), 3), rgb(255/255, 0/255, 0/255, 0.1), rgb(255/255, 20/255, 147/255, 0.1), rep(rgb(30/255, 144/255, 255/255, 0.1), 5))
   col = c(rep(rgb(178/255, 34/255, 34/255, 0.9), 2), rep(rgb(218/255, 165/255, 32/255, 0.9), 3), rgb(255/255, 0/255, 0/255, 0.8), rgb(255/255, 20/255, 147/255, 0.8), rep(rgb(30/255, 144/255, 255/255, 0.9), 5))
@@ -99,7 +100,7 @@ for (site in sites) {
   x1_4=jitter(rep(x_more[[4]], 4
   ))
   
-  plot(y=0, x=0, bg = col, col="black", type="n", lwd=0.3, cex=2, axes=F, ylab=list(expression("% flowering plants"), cex=1.5), xlab=list(expression("Year"), cex=1.5), xlim=c(1.1, 1.5), ylim=c(0, 1))
+  plot(y=0, x=0, bg = col, col="black", type="n", lwd=0.3, cex=2, axes=F, ylab=list(expression("Proportion flowering"), cex=1.5), xlab=list(expression("Year"), cex=1.5), xlim=c(1.1, 1.5), ylim=c(0, 1))
   
   
   # Plot families
@@ -113,7 +114,7 @@ for (site in sites) {
   
   
   # Plot population means
-  points(x=x1, y=flBin2011, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+  points(x=x1, y=flBin2011, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
   yzero=(flBin2011 + (stErr.flBin2011))
   for (i in 1:length(yzero)) {
     if ( !is.na(yzero[[i]])) {
@@ -131,7 +132,7 @@ for (site in sites) {
     }
   }
   arrows( x1, yzero, x1, yone, angle=90, code=3, length=0.03) 
-  points(x=x2, y=flBin2012, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+  points(x=x2, y=flBin2012, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
   
   yzero=(flBin2012 + (stErr.flBin2012))
   for (i in 1:length(yzero)) {
@@ -188,7 +189,7 @@ for (site in sites) {
   x1_4=jitter(rep(x_more[[4]], 4
   ))
   
-  plot(y=0, x=0, bg = col, col="black", type="n", lwd=0.3, cex=2, axes=F, ylab=list(expression("% surviving"), cex=1.5), xlab=list(expression("% flowering 1st year"), cex=1.5), xlim=c(0, 1), ylim=c(0, 1))
+  plot(y=0, x=0, bg = col, col="black", type="n", lwd=0.3, cex=2, axes=F, ylab=list(expression("Survival"), cex=1.5), xlab=list(expression("Proportion flowering 1st year"), cex=1.5), xlim=c(0, 1), ylim=c(0, 1))
   
   ###
   #     Sort and plot families
@@ -212,7 +213,7 @@ for (site in sites) {
   
   # Plot population means
   
-  points(x=flBin2011, y=survive2012, bg = col, pch=symb, col="black", lwd=0.1, cex=1.5)
+  points(x=flBin2011, y=survive2012, bg = col, pch=symb, col="black", lwd=0.1, cex=3)
   xzero=(flBin2011 + (stErr.flBin2011))
   for (i in 1:length(xzero)) {
     if ( !is.na(xzero[[i]])) {

@@ -1,4 +1,21 @@
 
+# Run as:
+# Rscript filename.R 
+
+###
+#         Read big table
+###
+setwd("Path to working directory")
+
+###
+# 	Load the data
+# 	All data files are deposited in the Dryad repository (doi:10.5061/dryad.7wm37pvvm). 
+###
+
+gh_noVern_dataSet = "Path to file flowering_behavior_greenhouse_no_vernalization_Wunder_etAl.txt"
+gh_yesVern_dataSet = "Path to flowering_behavior_greenhouse_with_vernalization_Wunder_etAl.txt"
+
+
 
 
 greenH_noVern <- as.data.frame(read.table(gh_noVern_dataSet, header = T, row.names = NULL))
@@ -227,7 +244,7 @@ col = c(rep(rgb(178/255, 34/255, 34/255, 0.9), 2), rep(rgb(218/255, 165/255, 32/
 #flTime[[2]] = 370
 
 
-plot(x=perc, y=flTime, bg = col, col="black", type="n", lwd=0.3, cex=2, axes=F, ylab=list(expression("Days to flowering"), cex=1.5), xlab=list(expression("% flowering plants"), cex=1.5), xlim=c(-0.05, 1), ylim=c(0, 380))
+plot(x=perc, y=flTime, bg = col, col="black", type="n", lwd=0.3, cex=2, axes=F, ylab=list(expression("Days to flowering"), cex=1.5), xlab=list(expression("Proportion of plants flowering"), cex=1.5), xlim=c(-0.05, 1), ylim=c(0, 380))
 
 # Add families
 for (r in 3:length(flTimeByFamily[,1])) {
@@ -255,15 +272,15 @@ for (sp in 1:2) {
 # Add all points from natural populations
 #
 rownames(perc)
-points(x=perc[rownames(perc) %in% c("E3", "E4", "F1a", "F1b", "F2", "S1", "S2", "S3", "S4", "S5")], y=flTime[rownames(perc) %in% c("E3", "E4", "F1a", "F1b", "F2", "S1", "S2", "S3", "S4", "S5")], bg = col, col="black", pch=symb, lwd=0.3, cex=2)
-points(x=perc[rownames(perc) %in% c("E3", "E4")], y=jitter(c(370, 370)), bg = rgb(178/255, 34/255, 34/255, 0.9), col="black", pch=symb[1:2], lwd=0.3, cex=2)
+points(x=perc[rownames(perc) %in% c("E3", "E4", "F1a", "F1b", "F2", "S1", "S2", "S3", "S4", "S5")], y=flTime[rownames(perc) %in% c("E3", "E4", "F1a", "F1b", "F2", "S1", "S2", "S3", "S4", "S5")], bg = col, col="black", pch=symb, lwd=0.3, cex=3)
+points(x=perc[rownames(perc) %in% c("E3", "E4")], y=jitter(c(370, 370)), bg = rgb(178/255, 34/255, 34/255, 0.9), col="black", pch=symb[1:2], lwd=0.3, cex=3)
 
 
 # Add references accessions
 # Pajares
-points(x=perc_ref[rownames(perc_ref) %in% c("Paj")], y=jitter(370), bg = rgb(255/255, 0/255, 0/255, 0.8), col="black", pch=symb[1:2], lwd=0.1, cex=1.5)
+points(x=perc_ref[rownames(perc_ref) %in% c("Paj")], y=jitter(370), bg = rgb(255/255, 0/255, 0/255, 0.8), col="black", pch=c(23), lwd=0.1, cex=3)
 # Pep1
-points(x=perc_ref[rownames(perc_ref) %in% c("PEP1")], y=flTime_ref[rownames(perc_ref) %in% c("PEP1")], bg = rgb(255/255, 20/255, 147/255, 0.8), col="black", pch=symb[1], lwd=0.1, cex=1.5)
+points(x=perc_ref[rownames(perc_ref) %in% c("PEP1")], y=flTime_ref[rownames(perc_ref) %in% c("PEP1")], bg = rgb(255/255, 20/255, 147/255, 0.8), col="black", pch=c(22), lwd=0.1, cex=3)
 
 
 # Add errors

@@ -145,19 +145,19 @@ par(mar=c(5,5,3,3))
 
 symb=c(21, 24, 
        21, 24, 23,
-       21, 21,
+       23, 22,
        21, 24, 23, 22, 25)
 colOr=c(rep(rgb(178/255, 34/255, 34/255, 0.3), 2), rep(rgb(218/255, 165/255, 32/255, 0.3), 3), rgb(255/255, 0/255, 0/255, 0.8), rgb(255/255, 20/255, 147/255, 0.8), rep(rgb(30/255, 144/255, 255/255, 0.3), 5))
 col = c(rep(rgb(178/255, 34/255, 34/255, 0.9), 2), rep(rgb(218/255, 165/255, 32/255, 0.9), 3), rgb(255/255, 0/255, 0/255, 0.8), rgb(255/255, 20/255, 147/255, 0.8), rep(rgb(30/255, 144/255, 255/255, 0.9), 5))
 
-plot(x=percV, y=flTimeV, bg = col, col="black", type="n", lwd=0.3, cex=2, axes=F, ylab=list(expression("Days to flowering"), cex=1.5), xlab=list(expression("% flowering plants"), cex=1.5), xlim=c(-0.05, 1), ylim=c(0, 380))
+plot(x=percV, y=flTimeV, bg = col, col="black", type="n", lwd=0.3, cex=2, axes=F, ylab=list(expression("Days to flowering"), cex=1.5), xlab=list(expression("Proportion of plants flowering"), cex=1.5), xlim=c(-0.05, 1), ylim=c(0, 380))
 
 # Add families
 for (r in 1:length(flTimeByFamilyV[,1])) {
   points(x=percByFamilyV[r,], y=flTimeByFamilyV[r,], bg = colOr[r], pch=symb[r], col="black", lwd=0.1)
 }
 
-points(x=percV, y=flTimeV, bg = col, col="black", pch=symb, lwd=0.3, cex=2)
+points(x=percV, y=flTimeV, bg = col, col="black", pch=symb, lwd=0.3, cex=3)
 
 # Add references accessions
 # Pajares
